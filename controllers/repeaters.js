@@ -45,9 +45,10 @@ const createRepeater = async (req, res) => {
     toneUp: req.body.toneUp,
     toneDown: req.body.toneDown,
     modes: req.body.modes,
-    updated: req.modes.updated,
+    updated: req.body.updated,
     status: req.body.status
   }
+  
   const response = await mongodb.getDatabase().db().collection('repeaters').insertOne(repeater)
   if (response.acknowledged) {
     res.status(204).send()
@@ -74,10 +75,11 @@ const updateRepeater = async (req, res) => {
     toneUp: req.body.toneUp,
     toneDown: req.body.toneDown,
     modes: req.body.modes,
-    updated: req.modes.updated,
+    updated: req.body.updated,
     status: req.body.status
   }
-  const response = await mongodb.getDatabase().db().collection('repeater').replaceOne({ _id: repeaterId }, repeater)
+  
+  const response = await mongodb.getDatabase().db().collection('repeaters').replaceOne({ _id: repeaterId }, repeater)
   if (response.modifiedCount > 0) {
     res.status(204).send()
   } else {

@@ -1,56 +1,156 @@
-### Get all contacts
-GET https://project1-h052.onrender.com/contacts HTTP/1.1
+### Get all radios
+GET https://cse341-project2-rcz6.onrender.com/radios HTTP/1.1
 
-### Get contact by Id
-GET http://project1-h052.onrender.com/contacts/65db9ff61d8ecdc82600525e HTTP/1.1
+### Get all repeaters
+GET https://cse341-project2-rcz6.onrender.com/repeaters HTTP/1.1
 
-### Create a contact
-POST http://project1-h052.onrender.com/contacts HTTP/1.1
+### Get radios by Id
+GET https://cse341-project2-rcz6.onrender.com/radios/65f61a798a0eb4614c1f0f7f HTTP/1.1
+
+### Get repeaters by Id
+GET https://cse341-project2-rcz6.onrender.com/repeaters/65f61d28ecf021028e2d09e5 HTTP/1.1
+
+### Create a radios
+POST https://cse341-project2-rcz6.onrender.com/radios HTTP/1.1
 Content-Type: application/json
 
 {
-    "firstName":"Modanna",
-    "lastName":"Rogain",
-    "email":"mRoodin@gmail.com",
-    "favoriteColor":"Brown",
-    "birthday":"June 19, 2000"
+    "make": "Icom",
+    "model": "ID-52A",
+    "partNumber": "ICO-ID-52A",
+    "bands": "2M/70cm",
+    "watts": "5",
+    "mode": "D-STAR",
+    "price": "599.95"
 }
 
-### Put contact (Change a contact)
-PUT http://project1-h052.onrender.com/contacts/65ecb3a742ce0a7c07e32ecc HTTP/1.1
+### Create a repeaters
+POST https://cse341-project2-rcz6.onrender.com/repeaters HTTP/1.1
 Content-Type: application/json
 
 {
-    "firstName":"Joe",
-    "lastName":"Rogain",
-    "email":"jRogain@testemail.com",
-    "favoriteColor":"Green",
-    "birthday":"June 19, 1980"
+    "location": "Post Falls",
+    "county": "Kootenai",
+    "callSign": "K7ID",
+    "frequency": "146.98",
+    "toneUp": "127.3",
+    "toneDown": "127.3",
+    "modes": "FM",
+    "updated": "3/21/2024",
+    "status": "online"
 }
 
-### Delete Contact
-DELETE http://project1-h052.onrender.com/contacts/65ecb3a742ce0a7c07e32ecc HTTP/1.1
-
-### Get all contacts
-GET http://localhost:3000/contacts
-
-### Get contacts by ID
-GET http://localhost:3000/contacts/65db9ddc1d8ecdc82600525b
-
-###Create contact 
-POST http://localhost:3000/contacts HTTP/1.1 content-type: application/json
+### Put radios (Change a radios)
+PUT https://cse341-project2-rcz6.onrender.com/radios/65f6255f433c69d5913e8142 HTTP/1.1
+Content-Type: application/json
 
 {
-"firstName":"Ashley", "lastName":"Weaver", "email":"aWeaver@test.com", "favoriteColor":"Brown", "birthday":"06/19/2000"
+    "make": "Icom",
+    "model": "ID-52A",
+    "partNumber": "ICO-ID-52A",
+    "bands": "2M/70cm",
+    "watts": "5",
+    "mode": "D-STAR",
+    "price": "624.90"
 }
 
-### PUT contact 
-PUT http://localhost:3000/contacts/6220bcb39cd507e920c75a0b HTTP/1.1 content-type: application/json
+### Put repeaters (Change a repeaters)
+PUT https://cse341-project2-rcz6.onrender.com/repeaters/65f625ef433c69d5913e8143 HTTP/1.1
+content-type: application/json
 
 {
-"firstName":"Sarah", "lastName":"Birch", "email":"test@gmail.com", "favoriteColor":"Green", "birthday":"12/12/20"
-} 
-### DELETE contact 
-DELETE http://localhost:3000/contacts/6220b775099269ff7b31ceab HTTP/1.1
+    "location": "Post Falls",
+    "county": "Kootenai",
+    "callSign": "K7ID",
+    "frequency": "146.98",
+    "toneUp": "127.3",
+    "toneDown": "127.3",
+    "modes": "FM",
+    "updated": "3/21/2024",
+    "status": "online"
+}
+### Delete radios
+DELETE https://cse341-project2-rcz6.onrender.com/radios/65f61a798a0eb4614c1f0f7f HTTP/1.1
+
+### Delete repeaters
+DELETE https://cse341-project2-rcz6.onrender.com/repeaters/65f6253f433c69d5913e8141 HTTP/1.1
+
+### Get all radios
+GET http://localhost:3000/radios
+
+### Get all repeaters
+GET http://localhost:3000/repeaters
+
+### Get radios by ID
+GET http://localhost:3000/radios/65f61a798a0eb4614c1f0f7f
+
+### Get repeaters by ID
+GET http://localhost:3000/repeaters/65f61d28ecf021028e2d09e5
+
+###Create radios 
+POST http://localhost:3000/radios HTTP/1.1 
+content-type: application/json
+
+{
+    "make": "Icom",
+    "model": "ID-52A",
+    "partNumber": "ICO-ID-52A",
+    "bands": "2M/70cm",
+    "watts": "5",
+    "mode": "D-STAR",
+    "price": "599.95"
+}
+
+###Create repeaters
+POST http://localhost:3000/repeaters HTTP/1.1 
+content-type: application/json
+
+{
+    "location": "Post Falls",
+    "county": "Kootenai",
+    "callSign": "K7ID",
+    "frequency": "146.98",
+    "toneUp": "127.3",
+    "toneDown": "127.3",
+    "modes": "FM",
+    "updated": "3/21/2024",
+    "status": "online"
+}
+
+### PUT radios 
+PUT http://localhost:3000/radios/65f625ef433c69d5913e8143 HTTP/1.1 
+content-type: application/json
+
+{
+    "make": "Icom",
+    "model": "ID-52A",
+    "partNumber": "ICO-ID-52A",
+    "bands": "2M/70cm",
+    "watts": "5",
+    "mode": "D-STAR",
+    "price": "500.00"
+}
+
+### PUT repeaters
+PUT http://localhost:3000/repeaters/65f625ef433c69d5913e8143 HTTP/1.1 
+content-type: application/json
+
+{
+    "location": "Post Falls",
+    "county": "Kootenai",
+    "callSign": "K7ID",
+    "frequency": "146.98",
+    "toneUp": "127.3",
+    "toneDown": "127.3",
+    "modes": "FM",
+    "updated": "3/21/2024",
+    "status": "offline"
+}
+
+### DELETE radios 
+DELETE http://localhost:3000/radios/65f621808a0eb4614c1f0f80 HTTP/1.1
+
+### DELETE repeaters
+DELETE http://localhost:3000/repeaters/65f61d28ecf021028e2d09e5 HTTP/1.1
 
 

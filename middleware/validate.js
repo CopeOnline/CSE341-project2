@@ -6,9 +6,9 @@ const saveRadio = (req, res, next) => {
     model: 'required|string',
     partNumber: 'required|string',
     bands: 'required|string',
-    watts: 'required|string',
+    watts: 'required|numeric',
     mode: 'required|string',
-    price: 'required|string'
+    price: 'required|numeric'
   }
   validator(req.body, validationRule, {}, (err, status) => {
     if (!status) {
@@ -27,10 +27,10 @@ const saveRepeater = (req, res, next) => {
   const validationRule = {
     location: 'required|string',
     county: 'required|string',
-    callSign: 'required|alpha_num',
-    frequency: 'required|num',
-    toneUp: 'alpha_num',
-    toneDown: 'alpha_num',
+    callSign: 'required|string',
+    frequency: 'required|numeric',
+    toneUp: 'string',
+    toneDown: 'string',
     modes: 'required|string',
     updated: 'required|date',
     status: 'required|string'
