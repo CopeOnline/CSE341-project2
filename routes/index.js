@@ -7,6 +7,8 @@ router.get('/', (req, res) => {
   res.send('Hello World')
 })
 
-router.use('/contacts', require('./contacts'))
+router.use('/radios', require('./radios'))
+
+router.use('/repeaters', require('./repeaters'))
 
 module.exports = router
