@@ -74,8 +74,7 @@ const updateRadio = async (req, res) => {
     price: req.body.price
   }
   const response = await mongodb.getDatabase().db().collection('radios').replaceOne({ _id: radioId }, radio)
-  console.log(response)
-  if (response.modifiedCount = 0) {
+  if (response.modifiedCount > 0) {
     res.status(204).send()
   } else {
     res.status(500).json(response.error || 'An error occured while updating the radio.')
