@@ -78,7 +78,7 @@ const updateRepeater = async (req, res) => {
     updated: req.body.updated,
     status: req.body.status
   }
-  
+
   const response = await mongodb.getDatabase().db().collection('repeaters').replaceOne({ _id: repeaterId }, repeater)
   if (response.modifiedCount > 0) {
     res.status(204).send()
@@ -97,7 +97,7 @@ const deleteRepeater = async (req, res) => {
   }
   const repeaterId = new ObjectId(req.params.id)
   const response = await mongodb.getDatabase().db().collection('repeaters').deleteOne({ _id: repeaterId })
-  if (response.deleteCount > 0) {
+  if (response.deletedCount > 0) {
     res.status(204).send()
   } else {
     res.status(500).json(response.error || 'An error occured while deleting the repeater.')

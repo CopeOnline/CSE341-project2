@@ -74,7 +74,7 @@ const updateRadio = async (req, res) => {
     price: req.body.price
   }
   const response = await mongodb.getDatabase().db().collection('radios').replaceOne({ _id: radioId }, radio)
-  if (response.modifiedCount > 0) {
+  if (response.modifiedCount = 0) {
     res.status(204).send()
   } else {
     res.status(500).json(response.error || 'An error occured while updating the radio.')
@@ -91,9 +91,9 @@ const deleteRadio = async (req, res) => {
   }
   const radioId = new ObjectId(req.params.id)
   const response = await mongodb.getDatabase().db().collection('radios').deleteOne({ _id: radioId })
-  if (response.deleteCount > 0) {
+  if (response.deletedCount > 0) {
     res.status(204).send()
-  } else {
+   } else {
     res.status(500).json(response.error || 'An error occured while deleting the radio.')
   };
 }
