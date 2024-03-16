@@ -148,9 +148,9 @@ content-type: application/json
 }
 
 ### DELETE radios 
-DELETE http://localhost:3000/radios/65f62c00c49c164464309675 HTTP/1.1
+DELETE http://localhost:3000/radios/65f62ebe452141a60cbbf27f HTTP/1.1
 
 ### DELETE repeaters
-DELETE http://localhost:3000/repeaters/65f61d28ecf021028e2d09e5 HTTP/1.1
+DELETE http://localhost:3000/repeaters/65f62849c49c16446430966d HTTP/1.1
 
 
