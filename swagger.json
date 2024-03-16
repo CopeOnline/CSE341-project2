@@ -5,7 +5,7 @@
     "description": "Contacts API Part 1 and Part 2",
     "version": "1.0.0"
   },
-  "host": "project1-h052.onrender.com",
+  "host": "cse341-project2-rcz6.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
@@ -13,7 +13,7 @@
   "paths": {
     "/": {
       "get": {
-        "description": "",
+        "description": "Hello World start page",
         "responses": {
           "200": {
             "description": "OK"
@@ -21,23 +21,20 @@
         }
       }
     },
-    "/contacts/": {
+    "/radios/": {
       "get": {
-        "description": "Returns all contacts in the database.",
+        "description": "Returns all radios in the database.",
         "produces": [
           "application/json"
         ],
         "responses": {
           "200": {
             "description": "OK"
-          },
-          "400": {
-            "description": "Bad Request"
           }
         }
       },
       "post": {
-        "description": "Create a contact in the database, every field is required. The contacted ID number is automatically assigned by the database after submition.   Any field that is ommitted will be set to \"NULL\"",
+        "description": "Create a radio in the database, every field is required. The radio ID number is automatically assigned by the database after submition.  Any field that is ommitted will be set to \"NULL\"",
         "parameters": [
           {
             "name": "body",
@@ -45,19 +42,25 @@
             "schema": {
               "type": "object",
               "properties": {
-                "firstName": {
+                "make": {
                   "example": "any"
                 },
-                "lastName": {
+                "model": {
                   "example": "any"
                 },
-                "email": {
+                "partNumber": {
                   "example": "any"
                 },
-                "favoriteColor": {
+                "bands": {
                   "example": "any"
                 },
-                "birthday": {
+                "watts": {
+                  "example": "any"
+                },
+                "mode": {
+                  "example": "any"
+                },
+                "price": {
                   "example": "any"
                 }
               }
@@ -77,9 +80,9 @@
         }
       }
     },
-    "/contacts/{id}": {
+    "/radios/{id}": {
       "get": {
-        "description": "Returns a contact from the database using the contacts ID number",
+        "description": "Returns a radio from the database using the radios ID number",
         "produces": [
           "application/json"
         ],
@@ -101,7 +104,7 @@
         }
       },
       "put": {
-        "description": "Update a contacts information using the contacts ID number.The contacted ID number is automatically assigned by the database after submition.   Any field that is ommitted will be set to \"NULL\"",
+        "description": "Update a radios information using the radios ID number.The radio ID number is automatically assigned by the database after submition.  Any field that is ommitted will be set to \"NULL\"",
         "parameters": [
           {
             "name": "id",
@@ -115,19 +118,25 @@
             "schema": {
               "type": "object",
               "properties": {
-                "firstName": {
+                "make": {
                   "example": "any"
                 },
-                "lastName": {
+                "model": {
                   "example": "any"
                 },
-                "email": {
+                "partNumber": {
                   "example": "any"
                 },
-                "favoriteColor": {
+                "bands": {
                   "example": "any"
                 },
-                "birthday": {
+                "watts": {
+                  "example": "any"
+                },
+                "mode": {
+                  "example": "any"
+                },
+                "price": {
                   "example": "any"
                 }
               }
@@ -150,7 +159,173 @@
         }
       },
       "delete": {
-        "description": "Delete a contact from the database using the contacts ID number.",
+        "description": "Delete a radio from the database using the radios ID number.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/repeaters/": {
+      "get": {
+        "description": "Returns all repeaters in the database.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "description": "Create a repeater in the database, every field is required. The repeatered ID number is automatically assigned by the database after submition.  Any field that is ommitted will be set to \"NULL\"",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "location": {
+                  "example": "any"
+                },
+                "county": {
+                  "example": "any"
+                },
+                "callSign": {
+                  "example": "any"
+                },
+                "frequency": {
+                  "example": "any"
+                },
+                "toneUp": {
+                  "example": "any"
+                },
+                "toneDown": {
+                  "example": "any"
+                },
+                "modes": {
+                  "example": "any"
+                },
+                "status": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/repeaters/{id}": {
+      "get": {
+        "description": "Returns a repeater from the database using the repeaters ID number",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      },
+      "put": {
+        "description": "Update a repeater information using the repeater ID number.The repeatered ID number is automatically assigned by the database after submition.  Any field that is ommitted will be set to \"NULL\"",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "location": {
+                  "example": "any"
+                },
+                "county": {
+                  "example": "any"
+                },
+                "callSign": {
+                  "example": "any"
+                },
+                "frequency": {
+                  "example": "any"
+                },
+                "toneUp": {
+                  "example": "any"
+                },
+                "toneDown": {
+                  "example": "any"
+                },
+                "modes": {
+                  "example": "any"
+                },
+                "status": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "412": {
+            "description": "Precondition Failed"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "Delete a repeater from the database using the repeaters ID number.",
         "parameters": [
           {
             "name": "id",
