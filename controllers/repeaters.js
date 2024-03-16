@@ -20,6 +20,9 @@ const getSingle = async (req, res) => {
   /*
     #swagger.description = 'Returns a repeater from the database using the repeaters ID number';
     */
+  if (!ObjectId.isValid(req.params.id)) {
+    res.status(400).json('Must use a valid radio id to get a repeater.')
+  }
   const repeaterId = new ObjectId(req.params.id)
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json('Must use a valid repeater id to find a repeater.')
