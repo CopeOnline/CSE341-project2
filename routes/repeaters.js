@@ -8,9 +8,9 @@ router.get('/', repeatersController.getAll)
 
 router.get('/:id', repeatersController.getSingle)
 
-router.post('/',  repeatersController.createRepeater)
+router.post('/', validation.saveRepeater, repeatersController.createRepeater)
 
-router.put('/:id',  repeatersController.updateRepeater)
+router.put('/:id', validation.saveRepeater, repeatersController.updateRepeater)
 
 router.delete('/:id', repeatersController.deleteRepeater)
 
