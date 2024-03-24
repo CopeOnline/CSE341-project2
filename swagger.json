@@ -1,14 +1,14 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Contacts API",
+    "title": "cse341-project2-rcz6.onrender.com",
     "description": "Contacts API Part 1 and Part 2",
     "version": "1.0.0"
   },
-  "host": "cse341-project2-rcz6.onrender.com",
+  "host": "localhost:3000",
   "basePath": "/",
   "schemes": [
-    "https"
+    "http"
   ],
   "paths": {
     "/": {
