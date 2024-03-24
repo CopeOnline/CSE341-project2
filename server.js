@@ -10,7 +10,7 @@ const cors = require('cors')
 const path = require('path')
 const expressLayouts = require('express-ejs-layouts')
 
-const port = process.env.PORT || 10000
+const port = process.env.PORT || 3000
 
 
 // Static folder
