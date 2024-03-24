@@ -7,18 +7,8 @@ const session = require("express-session")
 const passport = require('passport')
 const GitHubStrategy = require('passport-github2').Strategy
 const cors = require('cors')
-const path = require('path')
-const expressLayouts = require('express-ejs-layouts')
 
 const port = process.env.PORT || 3000
-
-
-// Static folder
-app.use(express.static(path.join(__dirname, 'public')))
-
-app.set('view engine', 'ejs')
-app.use(expressLayouts)
-app.set('layout', './layouts/layout') // not at views root
 
 app.use(bodyParser.json())
 app.use(session({
@@ -63,8 +53,7 @@ passport.deserializeUser((user, done) => {
   done(null, user)
 })
 
-app.get('/', (req, res) => {res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` :  res.render("/login", {title: "Login"}) 
-)})
+app.get('/', (req, res) => {res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` :  "Logged Out" )})
 
 app.get('/github/callback', passport.authenticate('github', {
   failureRedirect: '/api-docs', session: false}),
