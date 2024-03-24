@@ -8,6 +8,8 @@ const passport = require('passport')
 const GitHubStrategy = require('passport-github2').Strategy
 const cors = require('cors')
 
+const username = "Larry Copeland"
+
 const port = process.env.PORT || 3000
 
 app.use(bodyParser.json())
@@ -53,7 +55,7 @@ passport.deserializeUser((user, done) => {
   done(null, user)
 })
 
-app.get('/', (req, res) => {res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` :  "Logged Out" )})
+app.get('/', (req, res) => {res.send(req.session.user !== undefined ? `Logged in as ${username}` :  "Logged Out" ); console.log(req)})
 
 app.get('/github/callback', passport.authenticate('github', {
   failureRedirect: '/api-docs', session: false}),
